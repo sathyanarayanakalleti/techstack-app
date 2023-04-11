@@ -1,0 +1,52 @@
+version: '3'
+
+
+
+
+#networks:
+
+   #my_network:
+
+   # driver: bridge
+
+services:
+
+  web:
+
+   container_name: web
+
+   build: .
+    
+   ports:
+
+      - "5000:5000"
+  
+   #networks:
+
+        #- my_network
+
+
+
+
+
+  db:
+
+    container_name: db
+
+    image: postgres:latest
+
+    #networks:
+
+       #  - my_network
+    
+    ports:
+
+       - "5432:5432"
+
+    environment:
+
+       POSTGRES_USER: "postgres"
+
+       POSTGRES_PASSWORD: "123456"
+     
+       POSTGRES_HOST_AUTH_METHOD: trust
